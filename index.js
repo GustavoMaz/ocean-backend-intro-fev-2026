@@ -3,11 +3,11 @@ import express from 'express'
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello, World!</h1>')
+  res.send('Hello, World!')
 })
 
 app.get('/oi', (req, res) => {
-  res.send('<h1>Olá, Mundo!</h1>')
+  res.send('Olá, Mundo!')
 })
 
 app.listen(3000, () => {
