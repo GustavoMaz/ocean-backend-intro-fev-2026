@@ -11,18 +11,9 @@ app.get('/oi', (req, res) => {
 })
 
 const lista = [
-  {
-    name: 'Rick Sanchez',
-    gender: 'male'
-  }, 
-  {
-    name: 'Morty Smith',
-    gender: 'male'
-  }, 
-  {
-    name: 'Beth Sanchez',
-    gender: 'female'
-  }
+  'Rick Sanchez',
+  'Morty Smith',
+  'Beth Sanchez',
 ]
 
 app.get('/personagens', (req, res) => {
@@ -33,6 +24,15 @@ app.get('/personagens/:id', (req, res) => {
   const id = req.params.id; //parâmetros vem com a requisição
   const personagem = lista[id-1]
   res.send(personagem)
+})
+
+app.use(express.json())
+
+app.post('/personagens/', (req, res) => {
+  const novoPersonagem = req.body.nome
+  lista.push(novoPersonagem)
+
+  res.send("Novo personagem adicionado com sucesso");
 })
 
 app.listen(3000, () => {
